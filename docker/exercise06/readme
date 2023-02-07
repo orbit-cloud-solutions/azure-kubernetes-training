@@ -1,7 +1,7 @@
 cd ~/azure-kubernetes-training/docker/exercise06
 docker build -t engel .
 docker run -it --name engel engel
-whois engel # error, není součástí image
+whois engel.cz # error, není součástí image
 apt-get install -y whois ntp
 Ctrl + D
 docker diff engel # co vše se v kontejneru změnilo proti image
