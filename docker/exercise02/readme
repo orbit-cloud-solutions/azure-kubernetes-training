@@ -8,3 +8,17 @@ docker run -it --rm --name debian debian # -it spustí kontejner interaktivně
 more /etc/os-release
 Ctrl + D # ukončí shell a tedy i celý kontejner (--rm)
 docker ps -a # kontejner je pryč
+
+---
+
+docker run -it -d --name debian # na pozadí (detached)
+docker ps # STATUS Up
+docker exec -it debian /bin/bash # připojíme se k běžícímu kontejneru
+apt-get install mc
+mc # takto vidí filesystem kontejner
+F10 # ukončí mc
+docker ps # STATUS Up
+docker stop debian
+docker ps -a # STATUS Exited
+docker rm debian
+docker ps -a # kontejner je pryč
