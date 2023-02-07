@@ -1,0 +1,10 @@
+cd ~/azure-kubernetes-training/docker/exercise02
+more /etc/os-release # verze OS
+dir
+more Dockerfile
+docker build -t debian .
+docker images
+docker run -it --rm --name debian debian # -it spustí kontejner interaktivně
+more /etc/os-release
+Ctrl + D # ukončí shell a tedy i celý kontejner (--rm)
+docker ps -a # kontejner je pryč
