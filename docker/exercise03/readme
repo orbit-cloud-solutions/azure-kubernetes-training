@@ -3,6 +3,15 @@ docker build -t ex03 .
 docker volume create svazek
 docker volume ls
 sudo dir /var/lib/docker/volumes
-docker run -it --rm -name ex03 -v svazek:/svazek
+docker run -it --rm --name ex03 -v svazek:/svazek ex03
 dir -l # ve výpisu je /svazek
 Ctrl + D
+
+---
+
+cd ~/azure-kubernetes-training/docker/exercise03
+docker run -d --name apache -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ http # $PWD je aktuální adresář
+firefox localhost:8080
+docker inspect apache|more
+docker stop apache
+docker rm apache
