@@ -10,7 +10,7 @@ Ctrl + D
 ---
 
 cd ~/azure-kubernetes-training/docker/exercise03
-docker run -d --name apache -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ http # $PWD je aktuální adresář
+docker run -d --name apache -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd # $PWD je aktuální adresář
 firefox localhost:8080
 docker inspect apache|more
 docker stop apache
