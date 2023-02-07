@@ -1,0 +1,9 @@
+cd ~/azure-kubernetes-training/docker/exercise05
+docker pull hello-world
+docker save hello-world | gzip > hello-world.tgz
+tar tvf hello-world.tgz
+docker rmi hello-world
+docker images # image je pryč
+docker load < hello-world.tgz
+docker images # image je zpět
+docker run hello-world # nebude se stahovat

@@ -2,23 +2,23 @@ cd ~/azure-kubernetes-training/docker/exercise02
 more /etc/os-release # verze OS
 dir
 more Dockerfile
-docker build -t debian .
+docker build -t ex02 .
 docker images
-docker run -it --rm --name debian debian # -it spustí kontejner interaktivně
+docker run -it --rm --name ex02 ex02 # -it spustí kontejner interaktivně
 more /etc/os-release
 Ctrl + D # ukončí shell a tedy i celý kontejner (--rm)
 docker ps -a # kontejner je pryč
 
 ---
 
-docker run -it -d --name debian debian # na pozadí (detached)
+docker run -it -d --name ex02 ex02 # na pozadí (detached)
 docker ps # STATUS Up
-docker exec -it debian /bin/bash # připojíme se k běžícímu kontejneru
+docker exec -it ex02 /bin/bash # připojíme se k běžícímu kontejneru
 apt-get -y install mc
 mc # takto vidí filesystem kontejner
 File/Exit F10 # ukončí mc
 docker ps # STATUS Up
-docker stop debian
+docker stop ex02
 docker ps -a # STATUS Exited
 docker rm debian
 docker ps -a # kontejner je pryč

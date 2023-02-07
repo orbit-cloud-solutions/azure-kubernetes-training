@@ -1,0 +1,6 @@
+cd ~/azure-kubernetes-training/docker/exercise04
+docker build -t ex04 .
+docker network create --subnet=192.168.38.0/24 net1
+docker network inspect net1
+docker run --rm --network=net1 ex04 # jaká adresa se vypsala?
+docker network rm net1

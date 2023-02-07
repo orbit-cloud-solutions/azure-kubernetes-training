@@ -3,13 +3,13 @@ git clone https://github.com/orbit-cloud-solutions/azure-kubernetes-training
 cd ~/azure-kubernetes-training/docker/exercise01/
 dir
 more Dockerfile
-docker build -t backend . # řádek končí tečkou
+docker build -t ex01 . # řádek končí tečkou
 docker images
-docker run -d -p 8000:8000 --name backend backend # -d spustí kontejner na pozadí
+docker run -d -p 8000:8000 --name ex01 ex01 # -d spustí kontejner na pozadí
 docker ps # vypíše běžící kontejnery
 curl http://localhost:8000/
-docker inspect backend|more # ukončit klávesou Q
-docker stop backend
+docker inspect ex01|more # ukončit klávesou Q
+docker stop ex01
 docker ps -a # ukáže i zastavené kontejnery
-docker rm backend # a je uklizeno ;-)
+docker rm ex01 # a je uklizeno ;-)
 docker images # ale obraz nám zůstal
