@@ -17,6 +17,7 @@ docker exec -it ex02 /bin/bash # připojíme se k běžícímu kontejneru
 apt-get -y install mc
 mc # takto vidí filesystem kontejner
 File/Exit F10 # ukončí mc
+Ctrl + D
 docker ps # STATUS Up
 docker stop ex02
 docker ps -a # STATUS Exited
