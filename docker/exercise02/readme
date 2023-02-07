@@ -11,14 +11,20 @@ docker ps -a # kontejner je pryč
 
 ---
 
-docker run -it -d --name debian # na pozadí (detached)
+docker run -it -d --name debian debian # na pozadí (detached)
 docker ps # STATUS Up
 docker exec -it debian /bin/bash # připojíme se k běžícímu kontejneru
-apt-get install mc
+apt-get -y install mc
 mc # takto vidí filesystem kontejner
-F10 # ukončí mc
+File/Exit F10 # ukončí mc
 docker ps # STATUS Up
 docker stop debian
 docker ps -a # STATUS Exited
 docker rm debian
 docker ps -a # kontejner je pryč
+
+---
+
+az acr login --name backend001 # viz. přístupové klíče
+docker tag backend backend001.azurecr.io/backend
+docker push backend001.azurecr.io/backend
