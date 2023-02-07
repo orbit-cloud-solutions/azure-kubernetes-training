@@ -8,4 +8,5 @@ docker diff engel # co vše se v kontejneru změnilo proti image
 docker commit engel engel:whois # image vytvořen z instance, označen tagem
 docker images
 docker run -it --name engel-whois engel:whois
+whois engel.cz
 docker rm engel engel-whois
