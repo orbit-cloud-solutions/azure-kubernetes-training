@@ -27,5 +27,5 @@ docker ps -a # kontejner je pryč
 ---
 
 az acr login --name backend001 # viz. přístupové klíče
-docker tag backend backend001.azurecr.io/backend
+docker tag ex01 backend001.azurecr.io/backend
 docker push backend001.azurecr.io/backend
