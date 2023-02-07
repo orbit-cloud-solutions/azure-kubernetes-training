@@ -21,7 +21,7 @@ Ctrl + D
 docker ps # STATUS Up
 docker stop ex02
 docker ps -a # STATUS Exited
-docker rm debian
+docker rm ex02
 docker ps -a # kontejner je pryč
 
 ---
