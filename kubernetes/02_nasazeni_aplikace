@@ -5,7 +5,7 @@ kubectl get services
 kubectl get pods
 kubectl get service azure-vote-front # read external ip address
 firefox <address>
-kubectl describe azure-vote-front
+kubectl describe service azure-vote-front
 
 * Azure portal/AKS/Workloads
 * Deployments, Pods, Replica Sets
