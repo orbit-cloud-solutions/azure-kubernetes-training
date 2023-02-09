@@ -1,0 +1,9 @@
+Azure portal: vytvořit Storage Account
+kubectl apply -f storage_class.yaml
+kubectl apply -f pvc.yaml # persistent volume claim
+kubectl get pvc # STATUS Pending => Bound
+kubectl apply -f alpine_pvc.yaml # pod s linuxem
+kubectl get pods
+kubectl exec -it alpine -- /bin/sh
+ls /mnt # vypíše Azure
+kubectl describe pod alpine|more

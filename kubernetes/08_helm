@@ -1,0 +1,15 @@
+wget https://get.helm.sh/helm-v3.11.1-linux-amd64.tar.gz
+tar xvf helm-v3.11.1-linux-amd64.tar.gz
+sudo cp helm /usr/local/bin
+cd ~
+git clone https://github.com/IBM/helm101
+cd helm101
+dir
+kubectl create namespace helm-demo
+cd charts
+helm install guestbook-demo ./guestbook/ --namespace helm-demo
+kubectl get service guestbook-demo --namespace helm-demo
+firefox <adresa>:3000
+kubectl get deployment guestbook-demo --namespace helm-demo
+kubectl get pods --namespace helm-demo
+kubectl get services --namespace helm-demo
