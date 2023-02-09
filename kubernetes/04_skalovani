@@ -1,0 +1,29 @@
+# manuální škálování
+* kubectl scale --replicas=2 deployment/azure-vote-front
+* kubectl get pods
+
+# autoscaling
+* az aks show --resource-group <resource_group> --name <cluster> --query kubernetesVersion # > 1.10 => Metric Server installed
+* more azure-vote.yaml # resources/requests, resources/limits
+* kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10 # pustí hned 3 pody
+# alternativně upravit přímo azure-vote.yaml a kubectl apply
+* kubectl get hpa # po chvíli ukáže hodnoty
+* kubectl delete hpa azure-vote-front
+
+# škálovat lze i nody:
+# az aks scale --resource-group <resource_group> --name <cluster> --node-count 2
+# my mále ale cluster v režimu Autoscaler 1 - 2
+
+# autoscaler lze popsat i pomocí YAML:
+apiVersion: autoscaling/v1​
+kind: HorizontalPodAutoscaler​
+metadata:​
+  name: azure-vote-front-hpa​
+spec:​
+  maxReplicas: 10 # define max replica count​
+  minReplicas: 3  # define min replica count​
+  scaleTargetRef:​
+    apiVersion: apps/v1​
+    kind: Deployment​
+    name: azure-vote-front​
+  targetCPUUtilizationPercentage: 50 # target CPU utilization

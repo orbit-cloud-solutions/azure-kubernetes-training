@@ -1,0 +1,11 @@
+* nano azure-vote.yaml # Ctrl+X, y, zvýšit počet replik azure-vote-front na 2
+* kubectl apply -f azure-vote.yaml
+* kubectl get service azure-vote-front # zjistíme adresu
+* firefox <adresa>
+* kubectl get pods
+* kubectl delete pod <pod_name>
+* firefox <adresa> # stále jede!
+* kubectl get pods # kubernetes si sám spustil chybějící pod
+* nano azure-vote.yaml # Ctrl+X, y, počet replik azure-vote-front vrátit na 1
+* kubectl apply -f azure-vote.yaml
+* kubectl get pods # STATUS Terminating

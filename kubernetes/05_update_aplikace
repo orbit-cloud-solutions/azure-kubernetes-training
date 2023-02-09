@@ -1,0 +1,25 @@
+* cd ~
+* git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
+* cd azure-voting-app-redis
+* nano azure-vote/azure-vote/config_file.cfg # Ctrl+X, y
+* sudo apt-get install docker-compose
+* docker-compose up --build -d # build kontejneru, spuštění na pozadí
+* firefox localhost:8080 # aplikace je upravená
+* docker images
+
+* Azure portal/Azure Container Registry/Access control (IAM)/Role assignments
+# pokud zde není AcrPull role:
+* Azure portal/Azure Container Registry/Overview/JSON/Copy ResourceID
+* az aks update -n <cluster> -g <resource_group> --attach-acr <acr-resource-id>
+
+
+* docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <registry_server>/azure-vote-front:v2
+* docker images
+* docker login 
+* az acr login --name <container_registry_name>
+* docker push <registry_server>/azure-vote-front:v2
+* kubectl set image deployment azure-vote-front azure-vote-front=<registry_server>/azure-vote-front:v2
+# pokud dojde k chybě podu, kubectl describe <pod>
+* kubectl get pods # Container Creating, Terminating, Running
+* kubectl get service azure-vote-front # adresa
+* firefox <adresa>
