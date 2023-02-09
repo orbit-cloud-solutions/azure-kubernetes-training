@@ -1,0 +1,17 @@
+* search AKS in Azure portal, select Kubernetes Services
+* Create a Kubernetes cluster
+* Subscription, Resource Group
+* Cluster preset Dev/Test
+* Cluster name <jméno>
+* Node size A2_v2
+* Autoscale 1-2
+* Next, Next... Create ...pár minut...
+* Status: Succeeeded (Running)
+
+* sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+* echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+* az login
+* az aks get-credentials --resource-group <skupina> --name <cluster>
+* sudo apt-get update
+* sudo apt-get install kubectl
+* kubectl get nodes
