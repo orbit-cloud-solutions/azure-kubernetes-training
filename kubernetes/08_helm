@@ -1,6 +1,7 @@
 wget https://get.helm.sh/helm-v3.11.1-linux-amd64.tar.gz
 tar xvf helm-v3.11.1-linux-amd64.tar.gz
-sudo cp helm /usr/local/bin
+sudo cp linux-amd64-helm/helm /usr/local/bin
+helm version
 cd ~
 git clone https://github.com/IBM/helm101
 cd helm101
